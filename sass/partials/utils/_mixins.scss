@@ -1,0 +1,134 @@
+// sprite mixin
+// usage example:
+// @include sprite(red, $x: center, $y: -589px);
+@mixin sprite($color, $x, $y, $image: "$sprite-image") {
+    background: $color url($image + ".png");
+    background-image: url($image + ".svg"), none;
+    background-position: $x $y;
+    background-repeat: no-repeat;
+}
+
+@mixin micro-clearfix {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after,
+    &:after {
+        clear: both;
+    }
+}
+
+// List color
+// ===================
+// Setting a different ul bullet colour
+@mixin bullet-color($bulletcolor, $textcolor) {
+    list-style-type: none;
+    position: relative;
+    margin-left: 1em;
+    padding-left: 0;
+
+    li {
+        color: $textcolor;
+        list-style-type: none;
+        position: relative;
+    }
+
+    li:before {
+        content: "\2022";
+        position: absolute;
+        left: -1em;
+        color: $bulletcolor;
+        margin-right: 5px;
+    }
+}
+
+// Buttons
+// ===================
+
+// Button Colors
+// -------------------
+// Mixins for common color combinations.
+
+// Btn default
+@mixin btn($bgcolor: $white, $textcolor: $black, $hovercolor: $black, $hovertext: $white) {
+    background-color: $bgcolor;
+    border: 2px solid $textcolor;
+    border-radius: 4px;
+    color: $textcolor;
+    display: inline-block;
+    font-size: $text-base;
+    overflow: hidden;
+    padding: 8px 10px;
+    text-decoration: none;
+    transition: background-color .3s;
+    vertical-align: middle;
+    @include mquery("medium") {
+        &:hover {
+            background-color: $hovercolor;
+            color: $hovertext;
+            text-decoration: none;
+        }
+    }
+}
+
+@mixin btn-blue {
+    @include btn($white, $light-blue, $light-blue);
+}
+
+@mixin btn-orange {
+    @include btn($white, $orange, $orange);
+}
+
+@mixin btn-transparent {
+    @include btn(transparent, $white, $white, $black);
+    border-color: $white;
+}
+
+@mixin btn-disabled {
+    background-color: $gray-lighter; 
+    border: 1px solid $gray-lighter; 
+    color: $white;
+
+    &:hover {
+        background-color: $gray-lighter; 
+        color: $white;
+    }
+}
+
+//
+// Media Queries mixin. Suppor min-width, you can pass it a varible
+// or specific values
+//
+// usage example:
+//
+// @include mquery("medium") {
+//    content
+// }
+//
+// or
+//
+// @include mquery(690px) {
+//    content
+// }
+//
+@mixin mquery($breakpoint) {
+    $val: map-getter($site-breakpoints, $breakpoint);
+
+    @if $val == false {
+        @if type-of($breakpoint) == number {
+            @media only screen and ("min-width": $breakpoint) {
+                @content;
+            }
+        }
+        @else {
+            @error "QUERY MIXINS ERROR - INVALID ARGUMENT";
+        }
+    }
+    @else {
+        @media only screen and ("min-width": $val) {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    scrollbar-face-color: $main-color;
+    scrollbar-track-color: $main-color;
+}
+
+section {
+    padding: 20px;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+    width: inherit;
+}
+

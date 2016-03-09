@@ -1,0 +1,40 @@
+// Sprite
+
+// Typography
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+$text-large: 1.325em;
+$text-base: 1em;
+$text-small: .833em;
+$text-xsmall: .694em;
+
+$text-h1: 3.157em;
+$text-h2: 2.369em;
+$text-h3: 1.777em;
+$text-h4: 1.333em;
+
+// Colors
+// Main Colors in Movil Brand book
+$main-color: #007abd;
+$secundary-color: #013960;
+$light-grey: #f5f6f7;
+$middle-grey: #cacaca;
+$dark-grey:#515151;
+$auxiliary-color:#21282f;
+
+// Neat variables
+$grid-colums: 12;
+$max-width: 1080px;
+$grid-limit: 1400px;
+
+// Breakpoints
+// TL;DR, ems don't depend on the physical device size, whereas pixels do.
+// http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/
+// http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#relative
+$site-breakpoints: (
+    "base": "20em", //320px
+    "small": "37.5em", //600px
+    "medium": "56.25em", //900px
+    "large": "68.75em", //1100px
+    "x-large": "87.5em", //1400px
+);
