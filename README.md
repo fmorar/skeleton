@@ -2,11 +2,11 @@
 
 ###Usage
 
-###$ Install npm modules
+####Install npm modules
 1. npm install
 2. Run grunt
 
-#### grunt
+####Grunt
 1. Edit sass and js files
 2. vim sass/style.scss
 3. vim src-js/script.js
