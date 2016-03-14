@@ -1,5 +1,6 @@
 # skeleton
-Usage
+
+###Usage
 
 1. Install npm modules
 
@@ -13,7 +14,7 @@ $ vim sass/style.scss
 $ vim src-js/script.js
 4. Enjoy
 
-Notes
+###Notes
 
 Autoprefixer
 
